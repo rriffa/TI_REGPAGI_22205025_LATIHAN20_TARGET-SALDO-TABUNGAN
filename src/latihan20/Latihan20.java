@@ -18,31 +18,25 @@ public class Latihan20 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // Input saldo awal, bunga per bulan, dan saldo target
-        double saldoAwal = 3500000;
-        double bungaBulan = 8;
-        double saldoTarget = 6000000;
+        Scanner scanner = new Scanner(System.in);
+        int bulan = 0;
+        
+        System.out.print("Saldo Awal: ");
+        int saldoAwal = scanner.nextInt();
 
-        // Hitung bunga per bulan
-        double bungaPerBulan = saldoAwal * bungaBulan / 100;
+        System.out.print("Bunga/Bulan (%): ");
+        int bungaPerBulan = scanner.nextInt();
 
-        // Hitung lama bulan untuk mencapai saldo target
-        int lamaBulan = 1;
-        double saldoAkhir = saldoAwal;
-        while (saldoAkhir < saldoTarget) {
-            saldoAkhir += bungaPerBulan;
-            lamaBulan++;
-        }
-
-        // Output lama bulan untuk mencapai saldo target
-        System.out.println("Perhitungan lama tabungan sampai mencapai saldo target.");
-        System.out.println("Saldo Awal: Rp." + saldoAwal);
-        System.out.println("Bunga/Bulan (%): " + bungaBulan);
-        System.out.println("Saldo target: Rp." + saldoTarget);
-        System.out.println("Output:");
-        System.out.println("Lama bulan untuk mencapai saldo target: " + lamaBulan);
+        System.out.print("saldo target: ");
+        int saldoTarget = scanner.nextInt();
 
         
+        while (saldoAwal < saldoTarget) {
+            bulan++;
+            int bunga = saldoAwal * bungaPerBulan / 100 ;
+            saldoAwal += bunga;
+            System.out.println("Saldo di bulan ke-" + bulan + "= Rp." + saldoAwal);
+            
+        }
     }
-    
 }
